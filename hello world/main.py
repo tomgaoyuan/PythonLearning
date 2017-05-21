@@ -1,3 +1,5 @@
+#!/usr/bin/ython
+# -*- coding:utf-8 -*-
 class SyntaxTest(object):
     '''
     This is a class used for learning Python
