@@ -193,6 +193,16 @@ class SyntaxTest(object):
     def test_doc_demo(self):
         print 'this is a test'
 
+    def pickling_demo(self):
+        import json
+        d = dict(name='Tom', id=1)
+        str = json.dumps(d)
+        d2 = json.loads(str)
+        print type(d2),d2
+        j = json.dumps(str, default=lambda obj: obj.__dict__)
+        str2 = json.loads(j, object_hook=lambda s: str(s))
+        print type(str2), str2
+
     @classmethod
     def selfIntroduction(cls):
         print cls.selfIntroStr
@@ -200,7 +210,7 @@ if __name__ == '__main__':
     print 'Syntax Test'
     import sys
     args = sys.argv
-    # s = SyntaxTest()
+    s = SyntaxTest()
     # s.closeureTest()
     # s.mapReduceTest()
     # s.lambdaTest()
@@ -215,7 +225,8 @@ if __name__ == '__main__':
     # s.dynamic_compiling()
     # s.try_catch()
     # s.set_trace()
-    __name__ = '__doctest__'
+    s.pickling_demo()
+    # __name__ = '__doctest__'
 if __name__ == '__unittest__':
     import unittest
 
