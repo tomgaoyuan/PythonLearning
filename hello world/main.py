@@ -203,6 +203,12 @@ class SyntaxTest(object):
         str2 = json.loads(j, object_hook=lambda s: str(s))
         print type(str2), str2
 
+    def os_demo(self):
+        import os
+        print { 'PWD' : os.environ['PWD'] }
+        print { 'PATH' : os.environ['PATH'] }
+        print os.listdir('.')
+
     @classmethod
     def selfIntroduction(cls):
         print cls.selfIntroStr
@@ -225,7 +231,8 @@ if __name__ == '__main__':
     # s.dynamic_compiling()
     # s.try_catch()
     # s.set_trace()
-    s.pickling_demo()
+    # s.pickling_demo()
+    s.os_demo()
     # __name__ = '__doctest__'
 if __name__ == '__unittest__':
     import unittest
