@@ -209,6 +209,13 @@ class SyntaxTest(object):
         print { 'PATH' : os.environ['PATH'] }
         print os.listdir('.')
 
+    def swap_demo(self):
+        a = 1
+        b = 2
+        # a, b = (b, a)
+        # (a, b) = (b, a)
+        a, b = b, a
+        print a, b
     @classmethod
     def selfIntroduction(cls):
         print cls.selfIntroStr
@@ -232,7 +239,8 @@ if __name__ == '__main__':
     # s.try_catch()
     # s.set_trace()
     # s.pickling_demo()
-    s.os_demo()
+    # s.os_demo()
+    s.swap_demo()
     # __name__ = '__doctest__'
 if __name__ == '__unittest__':
     import unittest
